@@ -19,21 +19,22 @@ import (
 
 	"github.com/GoogleCloudPlatform/terraformer/terraformutils"
 	synthetics "github.com/dollarshaveclub/new-relic-synthetics-go"
-	newrelic "github.com/paultyng/go-newrelic/v4/api"
+	"github.com/newrelic/newrelic-client-go/newrelic"
+	"github.com/newrelic/newrelic-client-go/pkg/alerts"
 )
 
 type SyntheticsGenerator struct {
 	NewRelicService
 }
 
-func (g *SyntheticsGenerator) createSyntheticsAlertConditionResources(client *newrelic.Client) error {
-	alertPolicies, err := client.ListAlertPolicies()
+func (g *SyntheticsGenerator) createSyntheticsAlertConditionResources(client *newrelic.NewRelic) error {
+	alertPolicies, err := client.Alerts.ListPolicies(&alerts.ListPoliciesParams{})
 	if err != nil {
 		return err
 	}
 
 	for _, alertPolicy := range alertPolicies {
-		syntheticsAlertConditions, err := client.ListAlertSyntheticsConditions(alertPolicy.ID)
+		syntheticsAlertConditions, err := client.Alerts.ListSyntheticsConditions(alertPolicy.ID)
 		if err != nil {
 			return err
 		}

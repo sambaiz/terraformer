@@ -147,7 +147,6 @@ require (
 	github.com/opsgenie/opsgenie-go-sdk-v2 v1.2.9
 	github.com/ory/dockertest v3.3.5+incompatible // indirect
 	github.com/packethost/packngo v0.9.0
-	github.com/paultyng/go-newrelic/v4 v4.10.0
 	github.com/pkg/errors v0.9.1
 	github.com/ryanuber/go-glob v1.0.0 // indirect
 	github.com/spf13/cobra v1.1.1
@@ -341,9 +340,13 @@ require (
 
 require github.com/PuerkitoBio/rehttp v1.0.0 // indirect
 
+require github.com/newrelic/newrelic-client-go v0.74.2
+
 require (
 	github.com/golang-jwt/jwt/v4 v4.3.0 // indirect
 	github.com/peterhellberg/link v1.1.0 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/stretchr/testify v1.7.0 // indirect
 )
 
 replace gopkg.in/jarcoal/httpmock.v1 => github.com/jarcoal/httpmock v1.0.5
